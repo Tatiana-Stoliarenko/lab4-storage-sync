@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота №4 — LocalStorage та синхронізація вкладок</title>
+</head>
+<body>
+    <h1>Облік кафедр та викладачів</h1>
+
+    <!-- Блок 1: Батьківська сутність (Кафедри) -->
+    <section>
+        <h2>1. Кафедри (Довідник)</h2>
+        <form id="department-form">
+            <input type="text" id="dept-name" placeholder="Назва кафедри" required>
+            <input type="text" id="dept-code" placeholder="Шифр (напр. ІСУ)" required>
+            <button type="submit">Додати кафедру</button>
+        </form>
+        <br>
+        <table border="1" cellpadding="6" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Назва кафедри</th>
+                    <th>Шифр</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody id="departments-tbody"></tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- Блок 2: Дочірня сутність (Викладачі з прив'язкою до Кафедри) -->
+    <section>
+        <h2>2. Викладачі (Прив'язка до кафедри)</h2>
+        <form id="teacher-form">
+            <input type="text" id="teacher-name" placeholder="ПІБ викладача" required>
+            
+            <!-- Обов'язкова вимога №4: випадний список без ручного введення -->
+            <select id="teacher-dept-select" required>
+                <option value="" disabled selected>-- Оберіть кафедру --</option>
+            </select>
+
+            <button type="submit" id="teacher-submit-btn">Додати викладача</button>
+        </form>
+        <br>
+        <table border="1" cellpadding="6" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ПІБ викладача</th>
+                    <th>Кафедра (з довідника)</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody id="teachers-tbody"></tbody>
+        </table>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
